@@ -101,34 +101,29 @@ struct HourlyItemView: View {
 }
 
 struct DailyRowView: View {
-    var day: String        // 星期或日期描述（如：「今天」、「週四」）
-    var iconName: String   // SF Symbol 圖示名稱
-    var low: String        // 最低溫字串（如：「24°」）
-    var high: String       // 最高溫字串（如：「31°」）
+    var day: String
+    var iconName: String
+    var low: String
+    var high: String
     
     var body: some View {
         HStack {
-            // 星期名稱
             Text(day)
                 .font(.body)
                 .foregroundColor(.white)
                 .frame(width: 50, alignment: .leading)
             
             Spacer()
-            
-            // 天氣 SF Symbol 圖示（支援多色渲染）
+
             Image(systemName: iconName)
                 .font(.title3)
                 .symbolRenderingMode(.multicolor)
             
             Spacer()
             
-            // 溫度區間：最低溫、溫度條（Capsule）、最高溫
             HStack(spacing: 12) {
                 Text(low)
                     .foregroundColor(.white.opacity(0.6))
-                
-                // 模擬溫度區間條
                 Capsule()
                     .fill(Color.white.opacity(0.4))
                     .frame(width: 60, height: 4)
@@ -141,7 +136,6 @@ struct DailyRowView: View {
     }
 }
 
-// MARK: - 預覽
 #Preview {
     ContentView()
 }
